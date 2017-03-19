@@ -69,4 +69,4 @@ app.get('/stream',function(req,res,body){
     })
 })
 
-app.listen(process.env.OPENSHIFT_NODEJS_PORT || 8080);
+app.listen(8080);

@@ -1,9 +1,9 @@
-let express = require('express');
-let request = require('request');
-let parser = require('fast-html-parser');
-let cors = require('cors');
+var express = require('express');
+var request = require('request');
+var parser = require('fast-html-parser');
+var cors = require('cors');
 
-let app = express();
+var app = express();
 app.use(cors());
 
 app.get('/stations',(req, res)=>{
@@ -11,8 +11,8 @@ app.get('/stations',(req, res)=>{
        if(err){
            console.log(err);
        }else{
-            let page = parser.parse(body);
-            let menu = page.querySelector('ul.nav_vodlist').childNodes.map((node)=>{
+            var page = parser.parse(body);
+            var menu = page.querySelector('ul.nav_vodlist').childNodes.map((node)=>{
                 if(node.childNodes){
                     return {
                         href: node.childNodes[0].rawAttrs.replace(/(href=\")|(\")*$/igm,''),
@@ -37,9 +37,9 @@ app.get('/station', (req,res)=>{
         if(error) {
             console.log(error);
         } else {
-            let page = parser.parse(body,{script:true});
-            let scripts =page.querySelectorAll('.content script');
-            let url  = scripts.map((script)=>{
+            var page = parser.parse(body,{script:true});
+            var scripts =page.querySelectorAll('.content script');
+            var url  = scripts.map((script)=>{
                 return script.childNodes[0];
             }).filter((script)=>{
                 if(script) return script;

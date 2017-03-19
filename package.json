@@ -13,5 +13,10 @@
     "express": "^4.15.2",
     "fast-html-parser": "^1.0.1",
     "request": "^2.81.0"
-  }
+  },
+  "scripts":{
+    "start": "node index.js"
+  },
+  "main": "index.js"
+
 }

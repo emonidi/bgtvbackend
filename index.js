@@ -6,7 +6,7 @@ var cors = require('cors');
 var app = express();
 app.use(cors());
 
-app.get('/stations',(req, res)=>{
+app.get('/stations',function(req, res){
     request('https://www.seirsanduk.com/',function(err,result,body){
        if(err){
            console.log(err);
@@ -29,7 +29,7 @@ app.get('/stations',(req, res)=>{
     })
 });
 
-app.get('/station', (req,res)=>{
+app.get('/station', function(req,res){
     request({
         url:'http://www.seirsanduk.com/'+req.query.id,
         // headers:req.headers

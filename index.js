@@ -2,6 +2,7 @@ var express = require('express');
 var request = require('request');
 var parser = require('fast-html-parser');
 var cors = require('cors');
+var channels = require('./channel-info');
 
 var app = express();
 app.use(cors());
@@ -24,7 +25,10 @@ app.get('/stations',function(req, res){
                 if(item) return item;
             });
 
-            res.json(menu)
+            res.json({
+                menu:menu,
+                channels:channels
+            })
        }
     })
 });
